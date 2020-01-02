@@ -61,9 +61,9 @@ export default {
     'n-button': Button
   },
   created: function () {
-      $.get("https://localhost:44384/api/field")
+      $.get("https://10.129.17.145:44384/api/field")
       .done( fields => {
-          $.get("https://localhost:44384/api/student")
+          $.get("https://10.129.17.145:44384/api/student")
                 .done(response => {
                     this.table1.data = response.map(student => {
                       student.fullname = [student.name, student.fathter_name].join(" ");

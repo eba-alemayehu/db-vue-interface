@@ -298,7 +298,7 @@ export default {
     'el-select': Select
   },
   created: function () {
-      $.get("https://localhost:44384/api/field")
+      $.get("https://10.129.17.145:44384/api/field")
       .done( fields => {
           console.log(fields); 
           this.fields = fields.map(field => {
@@ -307,7 +307,7 @@ export default {
             return field; 
           }); 
           console.log(this.fields); 
-          $.get("https://localhost:44384/api/student")
+          $.get("https://10.129.17.145:44384/api/student")
                 .done(response => {
                     this.table1.data = response.map(student => {
                       student.fullname = [student.name, student.father_name].join(" ");
@@ -318,7 +318,7 @@ export default {
                 }); 
       }); 
 
-      $.get("https://localhost:44384/api/country")
+      $.get("https://10.129.17.145:44384/api/country")
       .done( _countries => {
         console.log(_countries)
         this.countries = _countries.map(country => {
@@ -367,16 +367,16 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       console.log(this.student); 
-      // Axios.post("https://localhost:44384/api/student", this.student)
+      // Axios.post("https://10.129.17.145:44384/api/student", this.student)
       // .then((response) => {
       //   console.log(response); 
       // }); 
-      $.post("https://localhost:44384/api/student", this.student, function(result){
+      $.post("https://10.129.17.145:44384/api/student", this.student, function(result){
           window.location.href = "/#/stats"; 
       });
 
       // $.ajax({
-      //     url:"https://localhost:44384/api/student",
+      //     url:"https://10.129.17.145:44384/api/student",
       //     type:"POST",
       //     data:this.student,
       //     contentType:"application/json; charset=utf-8",
@@ -387,7 +387,7 @@ export default {
       //   });
       // var options = {
       //     method: 'POST',
-      //     uri: 'https://localhost:44384/api/student',
+      //     uri: 'https://10.129.17.145:44384/api/student',
       //     body: {
       //         some: 'payload'
       //     },
@@ -401,7 +401,7 @@ export default {
       //     .catch(function (err) {
       //         // POST failed...
       //     });
-      // $.post("https://localhost:44384/api/student", this.student)
+      // $.post("https://10.129.17.145:44384/api/student", this.student)
       // .done(response => {
       //   console.log(response); 
       // })
